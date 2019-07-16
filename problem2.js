@@ -10,5 +10,12 @@ const signatureProvider = new JsSignatureProvider(privateKeys);
 const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
 async function main() {
-
+    try {
+        const result = await rpc.get_account('baekseokinit');
+        console.log(result.created);
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+main();

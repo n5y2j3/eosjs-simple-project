@@ -10,5 +10,11 @@ const signatureProvider = new JsSignatureProvider(privateKeys);
 const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
 async function main() {
-
+    try {
+        console.log(await rpc.get_currency_balance('eosio.token', 'baekseokinit', 'EOS'));
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+main();
